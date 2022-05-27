@@ -1,10 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
+import {RootNavigation} from './src/navigation/RootNavigation';
 
 import SearchCustomersScreen from './src/screens/SearchCustomersScreen';
 
 const App = () => {
-  return <SearchCustomersScreen />;
+  return <RootNavigation />;
 };
 
 export default App;
