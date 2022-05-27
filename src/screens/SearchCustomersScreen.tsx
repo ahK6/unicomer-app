@@ -13,6 +13,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import TopHeader from '../components/headers/TopHeader';
+import InputText from '../components/inputs/InputText';
 import NormalLabel from '../components/labels/NormalLabel';
 import TitleLabel from '../components/labels/TitleLabel';
 
@@ -35,6 +36,9 @@ const SearchCustomersScreen = () => {
                       cumpleaños, genero, dirección, profesión o ingresos."
             labelStyle={{marginTop: 15}}
           />
+        </View>
+        <View style={{marginTop: isTablet ? hp(18) : hp(12)}}>
+          <InputText placeholder="Buscador por..." />
         </View>
       </View>
     </SafeAreaView>
