@@ -7,11 +7,18 @@ import {
 import {InputTextStyle} from './inputsStyles';
 import {InputTextParamsProps} from './inputsTypes';
 
-const InputText: FC<InputTextParamsProps> = ({placeholder, inputStyle}) => {
+const InputText: FC<InputTextParamsProps> = ({
+  placeholder,
+  onChangeText,
+  value,
+  inputStyle,
+}) => {
   return (
     <TextInput
       placeholder={placeholder}
       style={[InputTextStyle.input, inputStyle]}
+      onChangeText={onChangeText}
+      value={value}
     />
   );
 };

@@ -1,25 +1,32 @@
-import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import React, {useMemo, useState} from 'react';
+import {SafeAreaView, View} from 'react-native';
 import deviceInfoModule from 'react-native-device-info';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import Button from '../components/buttons/Button';
-import TopHeader from '../components/headers/TopHeader';
-import InputText from '../components/inputs/InputText';
-import NormalLabel from '../components/labels/NormalLabel';
-import TitleLabel from '../components/labels/TitleLabel';
+import {useNavigation} from '@react-navigation/native';
+import {
+  Button,
+  TopHeader,
+  InputText,
+  NormalLabel,
+  TitleLabel,
+} from '../../components';
 
 const SearchCustomersScreen = () => {
-  let isTablet = deviceInfoModule.isTablet();
+  const navigation = useNavigation();
+  let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
+
+  const [keyword, setKeyword] = useState<string>('');
+
+  const handleTextChange = (value: string) => {
+    setKeyword(value);
+  };
+
+  const handleSubmit = () => {
+    navigation.navigate('SearchCustomerResultsScreen');
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -39,8 +46,16 @@ const SearchCustomersScreen = () => {
           />
         </View>
         <View style={{marginTop: isTablet ? hp(18) : hp(12)}}>
-          <InputText placeholder="Buscador por..." />
-          <Button buttonText="Buscar" styleButton={{marginTop: 15}} />
+          <InputText
+            placeholder="Buscador por..."
+            onChangeText={handleTextChange}
+            value={keyword}
+          />
+          <Button
+            onPress={handleSubmit}
+            buttonText="Buscar"
+            styleButton={{marginTop: 15}}
+          />
         </View>
       </View>
     </SafeAreaView>

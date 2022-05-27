@@ -1,6 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SearchCustomersScreen from '../../screens/SearchCustomersScreen';
+import SearchCustomersScreen from '../../screens/customers/SearchCustomersScreen';
+import SearchCustomersResultsScreens from '../../screens/customers/SearchResultsScreens';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +11,13 @@ const HomePanelStack = () => {
       <Stack.Screen
         name="SearchCustomerScreen"
         component={SearchCustomersScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="SearchCustomerResultsScreen"
+        component={SearchCustomersResultsScreens}
         options={{
           headerShown: false,
         }}

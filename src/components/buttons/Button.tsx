@@ -8,9 +8,12 @@ const Button: FC<ButtonsParamsProps> = ({
   type,
   styleButton,
   labelStyle,
+  onPress,
 }) => {
   return (
-    <TouchableOpacity style={[buttonStyle.button, styleButton]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[buttonStyle.button, styleButton]}>
       <Text
         style={[
           {color: 'white', fontSize: 16, fontWeight: 'bold'},
