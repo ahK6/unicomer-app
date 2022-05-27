@@ -13,6 +13,8 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import TopHeader from '../components/headers/TopHeader';
+import NormalLabel from '../components/labels/NormalLabel';
+import TitleLabel from '../components/labels/TitleLabel';
 
 const SearchCustomersScreen = () => {
   let isTablet = deviceInfoModule.isTablet();
@@ -20,6 +22,21 @@ const SearchCustomersScreen = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <TopHeader />
+
+      <View
+        style={{
+          marginTop: isTablet ? hp(20) : hp(12),
+          paddingHorizontal: wp(7),
+        }}>
+        <View>
+          <TitleLabel labelText={'Buscar cliente'} />
+          <NormalLabel
+            labelText="Puedes buscar clientes utilizando su nombre, apellido, fecha de
+                      cumpleaños, genero, dirección, profesión o ingresos."
+            labelStyle={{marginTop: 15}}
+          />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
