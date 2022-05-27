@@ -12,6 +12,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Button from '../components/buttons/Button';
 import TopHeader from '../components/headers/TopHeader';
 import InputText from '../components/inputs/InputText';
 import NormalLabel from '../components/labels/NormalLabel';
@@ -39,6 +40,7 @@ const SearchCustomersScreen = () => {
         </View>
         <View style={{marginTop: isTablet ? hp(18) : hp(12)}}>
           <InputText placeholder="Buscador por..." />
+          <Button buttonText="Buscar" styleButton={{marginTop: 15}} />
         </View>
       </View>
     </SafeAreaView>
