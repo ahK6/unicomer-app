@@ -40,8 +40,6 @@ const SearchCustomersScreen = () => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <TopHeader />
-
       <View
         style={{
           marginTop: isTablet ? hp(20) : hp(12),

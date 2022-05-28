@@ -19,7 +19,6 @@ const AllCustomersScreens = (props: any) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <TopHeader />
       <View
         style={{
           paddingHorizontal: wp(7),

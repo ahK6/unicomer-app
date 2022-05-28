@@ -4,6 +4,7 @@ import SearchCustomersResultsScreens from '../../screens/customers/SearchResults
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerMenu from '../components/DrawerMenu';
 import AllCustomersScreens from '../../screens/customers/AllCustomersScreen';
+import {TopHeader} from '../../components';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,21 +18,18 @@ const HomePanelStack = () => {
           width: 250,
         },
         sceneContainerStyle: {backgroundColor: 'transparent'},
-        headerShown: false,
+        header: ({navigation}) => <TopHeader />,
       }}
       drawerContent={props => <DrawerMenu {...props} />}>
       <Drawer.Screen
         name="SearchCustomerScreen"
         component={SearchCustomersScreen}
-        options={{
-          headerShown: false,
-        }}
+        options={{}}
       />
       <Drawer.Screen
         name="SearchCustomerResultsScreen"
         component={SearchCustomersResultsScreens}
         options={{
-          headerShown: false,
           drawerLabel: () => null,
           drawerIcon: () => null,
         }}
@@ -39,9 +37,7 @@ const HomePanelStack = () => {
       <Drawer.Screen
         name="AllCustomersScreen"
         component={AllCustomersScreens}
-        options={{
-          headerShown: false,
-        }}
+        options={{}}
       />
     </Drawer.Navigator>
   );

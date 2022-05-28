@@ -16,4 +16,8 @@ export const topHeaderStyle = StyleSheet.create({
     width: 145,
     height: 60,
   },
+  iconContainer: {
+    position: 'absolute',
+    right: wp(5),
+  },
 });
