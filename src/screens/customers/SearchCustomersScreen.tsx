@@ -40,7 +40,6 @@ const SearchCustomersScreen = () => {
 
   const handleDropdownChange = (item: any) => {
     setValue(item.value);
-    console.log('wefwef ' + JSON.stringify(item.value));
   };
 
   return (
@@ -70,7 +69,7 @@ const SearchCustomersScreen = () => {
           <InputText
             placeholder={
               value === '1'
-                ? 'Luis, Luis Carcamo...'
+                ? 'Pedro, Luis Carcamo...'
                 : value === '2'
                 ? '12/04/1995'
                 : value === '3'
