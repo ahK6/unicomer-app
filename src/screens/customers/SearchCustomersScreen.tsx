@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import deviceInfoModule from 'react-native-device-info';
 import {
   widthPercentageToDP as wp,
@@ -13,11 +13,7 @@ import {
   NormalLabel,
   TitleLabel,
 } from '../../components';
-import {
-  HomePanelParamList,
-  SearchCustomerResultsScreenProps,
-} from '../../navigation/types';
-import {Dropdown} from 'react-native-element-dropdown';
+import {SearchCustomerResultsScreenProps} from '../../navigation/types';
 import DropdownSelect from '../../components/dropdown/Dropdown';
 
 const SearchCustomersScreen = () => {
