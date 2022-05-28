@@ -5,6 +5,7 @@ export type HomePanelParamList = {
   HomePanel: undefined;
   SearchCustomerScreen: undefined;
   SearchCustomerResultsScreen: {keyword: string; searchType: string};
+  AllCustomersScreen: undefined;
 };
 
 export type SearchCustomerScreenProps = NativeStackNavigationProp<
@@ -15,4 +16,9 @@ export type SearchCustomerScreenProps = NativeStackNavigationProp<
 export type SearchCustomerResultsScreenProps = NativeStackNavigationProp<
   HomePanelParamList,
   'SearchCustomerResultsScreen'
+>;
+
+export type AllCustomersScreenScreenProps = NativeStackNavigationProp<
+  HomePanelParamList,
+  'AllCustomersScreen'
 >;

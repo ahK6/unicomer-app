@@ -2,8 +2,8 @@ import React from 'react';
 import SearchCustomersScreen from '../../screens/customers/SearchCustomersScreen';
 import SearchCustomersResultsScreens from '../../screens/customers/SearchResultsScreens';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-
 import DrawerMenu from '../components/DrawerMenu';
+import AllCustomersScreens from '../../screens/customers/AllCustomersScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,12 +25,6 @@ const HomePanelStack = () => {
         component={SearchCustomersScreen}
         options={{
           headerShown: false,
-          headerStyle: {
-            backgroundColor: '#f9f9f9',
-            elevation: 0,
-            shadowOpacity: 0,
-            borderBottomWidth: 0,
-          },
         }}
       />
       <Drawer.Screen
@@ -40,6 +34,13 @@ const HomePanelStack = () => {
           headerShown: false,
           drawerLabel: () => null,
           drawerIcon: () => null,
+        }}
+      />
+      <Drawer.Screen
+        name="AllCustomersScreen"
+        component={AllCustomersScreens}
+        options={{
+          headerShown: false,
         }}
       />
     </Drawer.Navigator>

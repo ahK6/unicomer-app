@@ -8,11 +8,16 @@ import {
 } from 'react-native-responsive-screen';
 import {NormalLabel} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import {SearchCustomerResultsScreenProps} from '../types';
+import {
+  AllCustomersScreenScreenProps,
+  SearchCustomerResultsScreenProps,
+} from '../types';
 import {drawerMenuStyles} from './styles';
 
 const DrawerMenu = ({props}: any) => {
-  const navigation = useNavigation<SearchCustomerResultsScreenProps>();
+  const navigation = useNavigation<
+    SearchCustomerResultsScreenProps | AllCustomersScreenScreenProps
+  >();
 
   let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
 
@@ -54,7 +59,9 @@ const DrawerMenu = ({props}: any) => {
         <DrawerItem
           key={1}
           label="Listado de clientes"
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('AllCustomersScreen');
+          }}
           style={{
             height: isTablet ? hp(4) : hp(6),
             width: wp('55%'),
