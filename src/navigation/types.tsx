@@ -4,7 +4,7 @@ export type HomePanelParamList = {
   PanelNavigation: undefined;
   HomePanel: undefined;
   SearchCustomerScreen: undefined;
-  SearchCustomerResultsScreen: {keyword: string};
+  SearchCustomerResultsScreen: {keyword: string; searchType: string};
 };
 
 export type SearchCustomerScreenProps = NativeStackNavigationProp<

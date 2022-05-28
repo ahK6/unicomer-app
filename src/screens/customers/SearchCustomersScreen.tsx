@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import deviceInfoModule from 'react-native-device-info';
 import {
   widthPercentageToDP as wp,
@@ -17,23 +17,34 @@ import {
   HomePanelParamList,
   SearchCustomerResultsScreenProps,
 } from '../../navigation/types';
+import {Dropdown} from 'react-native-element-dropdown';
+import DropdownSelect from '../../components/dropdown/Dropdown';
 
 const SearchCustomersScreen = () => {
   const navigation = useNavigation<SearchCustomerResultsScreenProps>();
   let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
 
   const [keyword, setKeyword] = useState<string>('');
-
+  const [value, setValue] = useState('1');
+  const [isFocus, setIsFocus] = useState(false);
   const handleTextChange = (value: string) => {
     setKeyword(value);
   };
 
   const handleSubmit = () => {
-    navigation.navigate('SearchCustomerResultsScreen', {keyword});
+    navigation.navigate('SearchCustomerResultsScreen', {
+      keyword,
+      searchType: value,
+    });
+  };
+
+  const handleDropdownChange = (item: any) => {
+    setValue(item.value);
+    console.log('wefwef ' + JSON.stringify(item.value));
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <TopHeader />
 
       <View
@@ -49,12 +60,33 @@ const SearchCustomersScreen = () => {
             labelStyle={{marginTop: 15}}
           />
         </View>
-        <View style={{marginTop: isTablet ? hp(18) : hp(12)}}>
+        <View style={{marginTop: isTablet ? hp(15) : hp(12)}}>
+          <DropdownSelect
+            onChange={handleDropdownChange}
+            value={value}
+            isFocus={isFocus}
+            setIsFocus={setIsFocus}
+          />
           <InputText
-            placeholder="Buscador por..."
+            placeholder={
+              value === '1'
+                ? 'Luis, Luis Carcamo...'
+                : value === '2'
+                ? '12/04/1995'
+                : value === '3'
+                ? '01225455455'
+                : value === '4'
+                ? 'Sonsonate, La Paz...'
+                : value === '5'
+                ? 'Montes de san bartolo'
+                : value === '6'
+                ? 'Doctor, agricultor....'
+                : '560'
+            }
             onChangeText={handleTextChange}
             value={keyword}
           />
+
           <Button
             onPress={handleSubmit}
             buttonText="Buscar"

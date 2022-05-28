@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import deviceInfoModule from 'react-native-device-info';
 import {
@@ -7,8 +7,17 @@ import {
 } from 'react-native-responsive-screen';
 import {TopHeader} from '../../components';
 
-const SearchCustomersResultsScreens = () => {
+export interface data {
+  firstName: string;
+  lastName: string;
+}
+
+const SearchCustomersResultsScreens = (props: any) => {
   let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
+
+  const {keyword, searchType} = useMemo(() => props.route.params, []);
+
+  console.log(keyword, ' ' + searchType);
 
   return (
     <SafeAreaView style={{flex: 1}}>
