@@ -2,8 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomePanelStack from './stacks/HomePanelStack';
+import {HomePanelParamList} from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<HomePanelParamList>();
 
 export const RootNavigation = () => {
   {

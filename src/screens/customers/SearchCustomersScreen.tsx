@@ -13,9 +13,13 @@ import {
   NormalLabel,
   TitleLabel,
 } from '../../components';
+import {
+  HomePanelParamList,
+  SearchCustomerResultsScreenProps,
+} from '../../navigation/types';
 
 const SearchCustomersScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<SearchCustomerResultsScreenProps>();
   let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
 
   const [keyword, setKeyword] = useState<string>('');
@@ -25,7 +29,7 @@ const SearchCustomersScreen = () => {
   };
 
   const handleSubmit = () => {
-    navigation.navigate('SearchCustomerResultsScreen');
+    navigation.navigate('SearchCustomerResultsScreen', {keyword});
   };
 
   return (
