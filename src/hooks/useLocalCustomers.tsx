@@ -6,10 +6,7 @@ const useLocalCustomers = () => {
   const [customers, setCustomers] = useState<CustomerTypes[]>(usersData);
   const [searchResults, setSearchResults] = useState<{}[]>([]);
 
-  const serchCustomer = (
-    searchType: string = '1',
-    keyword: string = 'Luis',
-  ) => {
+  const serchCustomer = (searchType: string, keyword: string) => {
     let result: {}[] = [];
 
     switch (searchType) {

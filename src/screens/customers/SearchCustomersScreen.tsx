@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {Alert, SafeAreaView, View} from 'react-native';
 import deviceInfoModule from 'react-native-device-info';
 import {
   widthPercentageToDP as wp,
@@ -28,14 +28,21 @@ const SearchCustomersScreen = () => {
   };
 
   const handleSubmit = () => {
+    if (keyword === '')
+      return Alert.alert(
+        'Completa los campos',
+        'Debes escribir por lo menos un parametro de busqueda',
+      );
     navigation.navigate('SearchCustomerResultsScreen', {
       keyword,
       searchType: value,
     });
+    setKeyword('');
   };
 
   const handleDropdownChange = (item: any) => {
     setValue(item.value);
+    setKeyword('');
   };
 
   return (

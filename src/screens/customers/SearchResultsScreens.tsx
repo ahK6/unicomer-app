@@ -16,7 +16,7 @@ const SearchCustomersResultsScreens = (props: any) => {
   let isTablet = useMemo(() => deviceInfoModule.isTablet(), []);
 
   const [searchCustomer, searchResults] = useLocalCustomers();
-  const {keyword, searchType} = useMemo(() => props.route.params, []);
+  const {keyword, searchType} = props.route.params;
 
   useEffect(() => {
     searchCustomer(searchType, keyword);
